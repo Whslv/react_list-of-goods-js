@@ -40,7 +40,7 @@ function getPreparedGoods(goods, { sortField, sortReverce }) {
       case REVERSE_WARNING:
         return prepareGoods.reverse();
       default:
-        return 0;
+        return prepareGoods;
     }
   }
 
@@ -60,7 +60,7 @@ export const App = () => {
       <div className="buttons">
         <button
           type="button"
-          className={`button is-info + ${sortField === FILTER_INFO ? '' : 'is-light'}`}
+          className={`button is-info ${sortField === FILTER_INFO ? '' : 'is-light'}`}
           onClick={() => {
             setSortField(FILTER_INFO);
           }}
@@ -70,7 +70,7 @@ export const App = () => {
 
         <button
           type="button"
-          className={`button is-success + ${sortField === FILTER_SUCCESS ? '' : 'is-light'}`}
+          className={`button is-success ${sortField === FILTER_SUCCESS ? '' : 'is-light'}`}
           onClick={() => {
             setSortField(FILTER_SUCCESS);
           }}
@@ -80,7 +80,7 @@ export const App = () => {
 
         <button
           type="button"
-          className={`button is-warning + ${sortReverce === REVERSE_WARNING ? '' : 'is-light'}`}
+          className={`button is-warning ${sortReverce === REVERSE_WARNING ? '' : 'is-light'}`}
           onClick={() => {
             if (sortReverce === '') {
               setSortReverce(REVERSE_WARNING);
