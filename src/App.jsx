@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 import 'bulma/css/bulma.css';
 import './App.scss';
 import { useState } from 'react';
@@ -22,7 +20,7 @@ const FILTER_SUCCESS = 'success';
 const REVERSE_WARNING = 'warning';
 
 function getPreparedGoods(goods, { sortField, sortReverce }) {
-  let prepareGoods = [...goods];
+  const prepareGoods = [...goods];
 
   if (sortField) {
     prepareGoods.sort((good1, good2) => {
@@ -84,11 +82,11 @@ export const App = () => {
           type="button"
           className={`button is-warning + ${sortReverce === REVERSE_WARNING ? '' : 'is-light'}`}
           onClick={() => {
-            (sortReverce === '') ? (
-              setSortReverce(REVERSE_WARNING)
-            ) : (
-              setSortReverce('')
-            )
+            if (sortReverce === '') {
+              setSortReverce(REVERSE_WARNING);
+            } else {
+              setSortReverce('');
+            }
           }}
         >
           Reverse
